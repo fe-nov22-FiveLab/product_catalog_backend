@@ -2,6 +2,8 @@
 
 const { createServer } = require('./createServer');
 
-createServer().listen(3000, () => {
-  console.log('Server is running on localhost:3000');
+const port = process.env.PORT || 5000;
+
+createServer().listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
 });
