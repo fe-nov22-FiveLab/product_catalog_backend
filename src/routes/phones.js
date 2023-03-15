@@ -10,4 +10,3 @@ router.get('/', phonesController.getAll);
 module.exports = {
   router,
 };
-

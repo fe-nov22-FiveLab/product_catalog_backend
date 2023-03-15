@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write . --ignore-path .gitignore",
+    "lint": "eslint . --ignore-path .gitignore --fix",
+    "fix-style": "npm run format && npm run lint",
+    "prepare": "husky install",
+    "husky": "node ./node_modules/husky/lib/bin.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,12 @@
   },
   "devDependencies": {
     "eslint": "^8.36.0",
-    "nodemon": "^2.0.21"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "nodemon": "^2.0.21",
+    "prettier": "2.8.4"
+  },
+  "lint-staged": {
+    "*.js": "npm run fix-style"
   }
 }
