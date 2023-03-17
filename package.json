@@ -4,12 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node build/index.js",
     "setup": "ts-node src/setup.ts",
-    "dev": "nodemon src/index.ts",
-    "build": "npm i && tsc",
-    "format": "prettier --write src/.",
-    "lint": "eslint src/. --fix",
+    "start": "nodemon src/index.ts",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "lint": "eslint . --ignore-path .gitignore --fix",
     "fix-style": "npm run format && npm run lint",
     "prepare": "husky install",
     "husky": "node ./node_modules/husky/lib/bin.js"

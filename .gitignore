@@ -4,4 +4,10 @@ node_modules
 dist
 .env
 package-lock.json
-build
+
+/build
+/seeders
+/migrations
+/config
+/data
+/models
