@@ -2,12 +2,14 @@
   "name": "product_catalog_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "format": "prettier --write . --ignore-path .gitignore",
-    "lint": "eslint . --ignore-path .gitignore --fix",
+    "start": "node build/index.js",
+    "setup": "ts-node src/setup.ts",
+    "dev": "nodemon src/index.ts",
+    "build": "npm i && tsc",
+    "format": "prettier --write src/.",
+    "lint": "eslint src/. --fix",
     "fix-style": "npm run format && npm run lint",
     "prepare": "husky install",
     "husky": "node ./node_modules/husky/lib/bin.js"
@@ -25,19 +27,33 @@
   "homepage": "https://github.com/fe-nov22-FiveLab/product_catalog_backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.29.3",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "nodemon": "^2.0.21",
-    "prettier": "2.8.4"
-  },
-  "engines": {
-    "node": ">=14 <15"
+    "prettier": "2.8.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   },
   "lint-staged": {
-    "*.js": "npm run fix-style"
+    "*.ts": "npm run fix-style"
   }
 }
