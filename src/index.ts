@@ -1,27 +1,20 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import { router as phonesRouter } from './routes/phones';
+import { router as categoriesRouter } from './routes/categories';
 import { dbInit } from './utils/initDB';
 
 const app = express();
+const port = 5000;
 
 dbInit();
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/faq', (req, res) => {
-  res.send(`
-      <h1>Hello there from Five Lab &#128526;</h1>
-      <p>Check endpoint
-        <a href="https://product-catalog-api-sc0v.onrender.com/phones">
-          /phones
-        </a>
-      </p>
-      `);
-});
 app.use('/phones', phonesRouter);
-
-const port = 5000;
+app.use('/categories', categoriesRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
