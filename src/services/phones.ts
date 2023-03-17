@@ -1,6 +1,15 @@
 import { Phone } from '../models/Phone';
 
-export const getAll = () => Phone.findAll();
+export const getAll = async () => {
+  const phones = await Phone.findAll();
+
+  const total = await Phone.count();
+
+  return {
+    phones,
+    total
+  };
+};
 
 export const getOne = (phoneId: string) =>
   Phone.findOne({
@@ -21,10 +30,8 @@ export const getByParts = async (page: number, size: number) => {
 
   return {
     phones,
-    info: {
-      total,
-      page,
-      size
-    }
+    total,
+    page,
+    perPage: size
   };
 };
