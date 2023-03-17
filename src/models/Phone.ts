@@ -10,7 +10,6 @@ import {
   Table
 } from 'sequelize-typescript';
 import { Category } from './Category';
-import { PhoneInfo } from './PhoneInfo';
 
 @Table({
   tableName: 'phones',
