@@ -7,7 +7,7 @@ import {
   ForeignKey,
   Model,
   PrimaryKey,
-  Table,
+  Table
 } from 'sequelize-typescript';
 import { Category } from './Category';
 import { PhoneInfo } from './PhoneInfo';
@@ -15,90 +15,90 @@ import { PhoneInfo } from './PhoneInfo';
 @Table({
   tableName: 'phones',
   createdAt: false,
-  updatedAt: false,
+  updatedAt: false
 })
 export class Phone extends Model {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.INTEGER
   })
-  id: number;
+    id: number;
 
   @AllowNull(false)
   @ForeignKey(() => Category)
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.INTEGER
   })
-  categoryId: number;
+    categoryId: number;
 
   @BelongsTo(() => Category)
-  category: Category | null;
+    category: Category | null;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  phoneId: string;
+    phoneId: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  itemId: string;
+    itemId: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  name: string;
+    name: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.INTEGER
   })
-  fullPrice: number;
+    fullPrice: number;
 
   @AllowNull(false)
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.INTEGER
   })
-  price: number;
+    price: number;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  screen: string;
+    screen: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  capacity: string;
+    capacity: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  color: string;
+    color: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  ram: string;
+    ram: string;
 
   @AllowNull(false)
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.INTEGER
   })
-  year: number;
+    year: number;
 
   @AllowNull(false)
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING
   })
-  image: string;
+    image: string;
 }
