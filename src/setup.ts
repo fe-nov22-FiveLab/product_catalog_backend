@@ -1,6 +1,6 @@
 import { dbInit } from './utils/initDB';
 import { Phone } from './models/Phone';
-import { PhoneInfo } from './models/PhoneInfo';
+import { PhoneDetail } from './models/PhonesDetails';
 import { Category } from './models/Category';
 
 (async () => {
@@ -8,7 +8,7 @@ import { Category } from './models/Category';
 
   try {
     await Phone.sync({ alter: true });
-    await PhoneInfo.sync({ alter: true });
+    await PhoneDetail.sync({ alter: true });
     await Category.sync({ alter: true });
   } catch (error: any) {
     console.log(error.message);

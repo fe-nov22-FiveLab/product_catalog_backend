@@ -7,12 +7,17 @@ import {
   Column
 } from 'sequelize-typescript';
 
+interface Description {
+  title: string
+  text: string[]
+}
+
 @Table({
-  tableName: 'phoneInfo',
+  tableName: 'phonesDetails',
   createdAt: false,
   updatedAt: false
 })
-export class PhoneInfo extends Model {
+export class PhoneDetail extends Model {
   @PrimaryKey
   @AllowNull(false)
   @Column({
@@ -34,9 +39,9 @@ export class PhoneInfo extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataType.JSONB
+    type: DataType.ARRAY(DataType.STRING)
   })
-    capacityAvailable: string;
+    capacityAvailable: string[];
 
   @AllowNull(false)
   @Column({
@@ -58,9 +63,9 @@ export class PhoneInfo extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataType.JSONB
+    type: DataType.ARRAY(DataType.STRING)
   })
-    colorsAvailable: string;
+    colorsAvailable: string[];
 
   @AllowNull(false)
   @Column({
@@ -70,15 +75,15 @@ export class PhoneInfo extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataType.JSONB
+    type: DataType.ARRAY(DataType.STRING)
   })
-    images: string;
+    images: string[];
 
   @AllowNull(false)
   @Column({
-    type: DataType.JSONB
+    type: DataType.JSON
   })
-    description: string;
+    description: Description[];
 
   @AllowNull(false)
   @Column({
@@ -90,7 +95,7 @@ export class PhoneInfo extends Model {
   @Column({
     type: DataType.STRING
   })
-    iamgeresolutions: string;
+    resolution: string;
 
   @AllowNull(false)
   @Column({
@@ -118,7 +123,7 @@ export class PhoneInfo extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataType.JSONB
+    type: DataType.ARRAY(DataType.STRING)
   })
-    cell: string;
+    cell: string[];
 }
