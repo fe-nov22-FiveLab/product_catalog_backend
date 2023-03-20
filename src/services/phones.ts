@@ -2,9 +2,14 @@ import { Phone } from '../models/Phone';
 
 export const getAll = async (sort?: string) => {
   const sortBy = sort || 'id';
+  let sortType = 'ASC';
+
+  if (sort === 'year') {
+    sortType = 'DESC';
+  }
 
   const phones = await Phone.findAll({
-    order: [[sortBy, 'ASC']]
+    order: [[sortBy, sortType]]
   });
 
   const total = await Phone.count();
@@ -29,11 +34,16 @@ export const getByParts = async (
 ) => {
   const offset = (page - 1) * perPage;
   const sortBy = sort || 'id';
+  let sortType = 'ASC';
+
+  if (sort === 'year') {
+    sortType = 'DESC';
+  }
 
   const phones = await Phone.findAll({
     offset,
     limit: perPage,
-    order: [[sortBy, 'ASC']]
+    order: [[sortBy, sortType]]
   });
 
   const total = await Phone.count();
