@@ -2,14 +2,15 @@ import { type Request, type Response } from 'express';
 import * as phonesServices from '../services/phones';
 
 export const getPhones = async (req: Request, res: Response) => {
-  const { page, perPage } = req.query;
+  const { page, perPage, sort } = req.query;
 
+  const sortBy = sort as string;
   let pageValue = 1;
   let sizeValue = 16;
 
   if (!perPage && !page) {
     try {
-      const phones = await phonesServices.getAll();
+      const phones = await phonesServices.getAll(sortBy);
 
       res.send(phones);
     } catch (error) {
@@ -28,7 +29,11 @@ export const getPhones = async (req: Request, res: Response) => {
   }
 
   try {
-    const phones = await phonesServices.getByParts(pageValue, sizeValue);
+    const phones = await phonesServices.getByParts(
+      pageValue,
+      sizeValue,
+      sortBy
+    );
 
     res.send(phones);
   } catch (error) {

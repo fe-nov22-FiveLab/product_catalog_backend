@@ -1,7 +1,11 @@
 import { Phone } from '../models/Phone';
 
-export const getAll = async () => {
-  const phones = await Phone.findAll();
+export const getAll = async (sort?: string) => {
+  const sortBy = sort || 'id';
+
+  const phones = await Phone.findAll({
+    order: [[sortBy, 'ASC']]
+  });
 
   const total = await Phone.count();
 
@@ -18,12 +22,18 @@ export const getOne = (phoneId: string) =>
     }
   });
 
-export const getByParts = async (page: number, size: number) => {
-  const offset = (page - 1) * size;
+export const getByParts = async (
+  page: number,
+  perPage: number,
+  sort?: string
+) => {
+  const offset = (page - 1) * perPage;
+  const sortBy = sort || 'id';
 
   const phones = await Phone.findAll({
     offset,
-    limit: size
+    limit: perPage,
+    order: [[sortBy, 'ASC']]
   });
 
   const total = await Phone.count();
@@ -32,6 +42,6 @@ export const getByParts = async (page: number, size: number) => {
     phones,
     total,
     page,
-    perPage: size
+    perPage
   };
 };
