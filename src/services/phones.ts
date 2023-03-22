@@ -14,7 +14,7 @@ export const getAll = async (sort?: string, query?: string) => {
     order: [[sortBy, sortType]],
     where: {
       name: {
-        [Op.iLike]: `%${query}%`
+        [Op.iLike]: query ? `%${query}%` : '%'
       }
     },
     include: [
@@ -66,7 +66,7 @@ export const getByParts = async (
     order: [[sortBy, sortType]],
     where: {
       name: {
-        [Op.iLike]: `%${query}%`
+        [Op.iLike]: query ? `%${query}%` : '%'
       }
     },
     include: [
