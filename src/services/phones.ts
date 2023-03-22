@@ -1,7 +1,8 @@
 import { PhoneDetail } from './../models/PhonesDetails';
 import { Phone } from '../models/Phone';
+import { Op } from 'sequelize';
 
-export const getAll = async (sort?: string) => {
+export const getAll = async (sort?: string, query?: string) => {
   const sortBy = sort || 'id';
   let sortType = 'ASC';
 
@@ -11,6 +12,11 @@ export const getAll = async (sort?: string) => {
 
   const phones = await Phone.findAll({
     order: [[sortBy, sortType]],
+    where: {
+      name: {
+        [Op.iLike]: `%${query}%`
+      }
+    },
     include: [
       {
         model: PhoneDetail,
@@ -43,7 +49,8 @@ export const getOne = (phoneId: string) =>
 export const getByParts = async (
   page: number,
   perPage: number,
-  sort?: string
+  sort?: string,
+  query?: string
 ) => {
   const offset = (page - 1) * perPage;
   const sortBy = sort || 'id';
@@ -57,6 +64,11 @@ export const getByParts = async (
     offset,
     limit: perPage,
     order: [[sortBy, sortType]],
+    where: {
+      name: {
+        [Op.iLike]: `%${query}%`
+      }
+    },
     include: [
       {
         model: PhoneDetail,
