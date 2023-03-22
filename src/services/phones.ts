@@ -25,7 +25,13 @@ export const getAll = async (sort?: string, query?: string) => {
     ]
   });
 
-  const total = await Phone.count();
+  const total = await Phone.count({
+    where: {
+      name: {
+        [Op.iLike]: query ? `%${query}%` : '%'
+      }
+    }
+  });
 
   return {
     phones,
@@ -77,7 +83,15 @@ export const getByParts = async (
     ]
   });
 
-  const total = await Phone.count();
+  const total = await Phone.count({
+    where: {
+      name: {
+        [Op.iLike]: query ? `%${query}%` : '%'
+      }
+    }
+  });
+
+  console.log(phones);
 
   return {
     phones,
