@@ -4,6 +4,7 @@ import path from 'path';
 import { router as phonesRouter } from './routes/phones';
 import { router as phoneRouter } from './routes/phoneInfo';
 import { router as categoriesRouter } from './routes/categories';
+import { router as tabletsRouter } from './routes/tablets';
 import { dbInit } from './utils/initDB';
 
 const app = express();
@@ -14,6 +15,7 @@ dbInit();
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/tablets', tabletsRouter);
 app.use('/phones', phonesRouter);
 app.use('/phoneInfo', phoneRouter);
 app.use('/categories', categoriesRouter);
