@@ -85,3 +85,16 @@ export const getByParts = async (
     perPage
   };
 };
+
+export const getOne = (phoneId: string) =>
+  Tablet.findOne({
+    where: {
+      phoneId
+    },
+    include: [
+      {
+        model: TabletDetail,
+        as: 'tabletDetails'
+      }
+    ]
+  });

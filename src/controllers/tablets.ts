@@ -42,3 +42,21 @@ export const getPhones = async (req: Request, res: Response) => {
     res.sendStatus(400);
   }
 };
+
+export const getTabletById = async (req: Request, res: Response) => {
+  const { phoneId } = req.params;
+
+  try {
+    const phone = await tabletsService.getOne(phoneId);
+
+    if (!phone) {
+      res.sendStatus(404);
+
+      return;
+    }
+
+    res.send(phone);
+  } catch (error) {
+    res.sendStatus(400);
+  }
+};
