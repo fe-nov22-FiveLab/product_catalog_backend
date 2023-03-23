@@ -10,7 +10,7 @@ import { TabletDetail } from './models/TabletDetails';
 
   try {
     await Tablet.sync({ alter: true });
-    await TabletDetail.sync({ force: true });
+    await TabletDetail.sync({ alter: true });
     await Phone.sync({ alter: true });
     await PhoneDetail.sync({ alter: true });
     await Category.sync({ alter: true });
