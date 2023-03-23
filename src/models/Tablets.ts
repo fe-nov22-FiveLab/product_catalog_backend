@@ -10,6 +10,7 @@ import {
   Table
 } from 'sequelize-typescript';
 import { Category } from './Category';
+import { TabletDetail } from './TabletDetails';
 
 @Table({
   tableName: 'tablets',
@@ -36,10 +37,14 @@ export class Tablet extends Model {
     category: Category | null;
 
   @AllowNull(false)
+  @ForeignKey(() => TabletDetail)
   @Column({
     type: DataType.STRING
   })
     phoneId: string;
+
+  @BelongsTo(() => TabletDetail)
+    tabletDetails: TabletDetail | null;
 
   @AllowNull(false)
   @Column({
