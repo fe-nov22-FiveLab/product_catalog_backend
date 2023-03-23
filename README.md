@@ -5,4 +5,5 @@ Welcome to the Nice Gadgets Store! This is a project built with React, React-Rou
 This is the backend part of project which is built using Sequelize, Express, and Node.js. It includes APIs for fetching product information. The server is hosted on [render.com](render.com), which provides scalability and reliability.
 
 ## [Demo](https://fe-nov22-fivelab.github.io/product_catalog_frontend/)
+
 ## [API](https://product-catalog-api-sc0v.onrender.com/)
