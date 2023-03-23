@@ -44,7 +44,7 @@ export class Tablet extends Model {
     phoneId: string;
 
   @BelongsTo(() => TabletDetail)
-    phoneDetails: TabletDetail | null;
+    tabletDetails: TabletDetail | null;
 
   @AllowNull(false)
   @Column({

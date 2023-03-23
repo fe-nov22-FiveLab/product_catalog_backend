@@ -9,11 +9,11 @@ import { TabletDetail } from './models/TabletDetails';
   dbInit();
 
   try {
-    await Tablet.sync({ alter: true });
-    await TabletDetail.sync({ alter: true });
-    await Phone.sync({ alter: true });
-    await PhoneDetail.sync({ alter: true });
-    await Category.sync({ alter: true });
+    // await Tablet.sync({ alter: true });
+    await TabletDetail.sync({ force: true });
+    // await Phone.sync({ alter: true });
+    // await PhoneDetail.sync({ alter: true });
+    // await Category.sync({ alter: true });
   } catch (error: any) {
     console.log(error.message);
   }

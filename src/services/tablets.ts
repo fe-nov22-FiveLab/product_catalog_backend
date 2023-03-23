@@ -1,4 +1,5 @@
 import { Op } from 'sequelize';
+import { TabletDetail } from '../models/TabletDetails';
 import { Tablet } from '../models/Tablets';
 
 export const getAll = async (sort?: string, query?: string) => {
@@ -15,7 +16,13 @@ export const getAll = async (sort?: string, query?: string) => {
       name: {
         [Op.iLike]: query ? `%${query}%` : '%'
       }
-    }
+    },
+    include: [
+      {
+        model: TabletDetail,
+        as: 'tabletDetails'
+      }
+    ]
   });
 
   const total = await Tablet.count({
@@ -54,7 +61,13 @@ export const getByParts = async (
       name: {
         [Op.iLike]: query ? `%${query}%` : '%'
       }
-    }
+    },
+    include: [
+      {
+        model: TabletDetail,
+        as: 'tabletDetails'
+      }
+    ]
   });
 
   const total = await Tablet.count({
