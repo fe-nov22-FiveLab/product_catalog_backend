@@ -4,50 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>API - FAQ</title>
   </head>
-  <body>
-    <h1>Hello there from Five Lab &#128526;</h1>
-    <ul>
+  <body class="card container mt-6 content is-medium p-5">
+    <h1 class="is-size-2">Hello there from Five Lab &#128526;</h1>
+
+    <div class="card has-background-light">
+    <ul class="card-content is-size-4">
       Phones endpoints:
       <li>
         <a href="https://product-catalog-api-sc0v.onrender.com/phones">
           /phones
         </a>
-        - to get All phones.
+        - to get all phones
       </li>
       <li>
-        <a
-          href="https://product-catalog-api-sc0v.onrender.com/phones?page=2&perPage=10"
-        >
-          /phones?page=1&perPage=10
+        <a href="https://product-catalog-api-sc0v.onrender.com/phones?page=2&perPage=10">
+          /phones?page=1&perPage=10&query=text
         </a>
-        - to get phones by parts.
+        - to get phones by parts
       </li>
       <li>
         <a href="https://product-catalog-api-sc0v.onrender.com/phones/:phoneId">
           /phones/:phoneId
         </a>
-        - to get one phone.
+        - to get one phone
       </li>
     </ul>
-    <ul>
-      Phone Details endpoints:
+    </div>
+
+    <div class="card has-background-light">
+    <ul class="card-content is-size-4">
+      Phone details endpoints:
       <li>
         <a href="https://product-catalog-api-sc0v.onrender.com/categories">
           /phoneInfo/:phoneId
         </a>
-        - to get full information of the phone.
+        - to get full information of the phone
       </li>
     </ul>
-    <ul>
+    </div>
+
+    <div class="card has-background-light">
+      <ul class="card-content is-size-4">
+        Tablets endpoints:
+        <li>
+          <a href="https://product-catalog-api-sc0v.onrender.com/phones">
+            /tablets
+          </a>
+          - to get all tablets
+        </li>
+        <li>
+          <a href="https://product-catalog-api-sc0v.onrender.com/phones?page=2&perPage=10">
+            /tablets?page=1&perPage=10&query=text
+          </a>
+          - to get tablets by parts
+        </li>
+        <li>
+          <a href="https://product-catalog-api-sc0v.onrender.com/phones/:phoneId">
+            /tablets/:tabletId
+          </a>
+          - to get one tablet
+        </li>
+      </ul>
+    </div>
+
+    <div class="card has-background-light">
+      <ul class="card-content is-size-4">
+        Tablet details endpoints:
+        <li>
+          <a href="https://product-catalog-api-sc0v.onrender.com/categories">
+            /tabletInfo/:tabletId
+          </a>
+          - to get full information of the tablet
+        </li>
+      </ul>
+    </div>
+
+    <div class="card has-background-light">
+    <ul class="card-content is-size-4">
       Categories endpoints:
       <li>
         <a href="https://product-catalog-api-sc0v.onrender.com/categories">
           /categories
         </a>
-        - to get list of categories.
+        - to get list of categories
       </li>
     </ul>
+    </div>
   </body>
 </html>
