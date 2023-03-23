@@ -5,6 +5,7 @@ import { Category } from './models/Category';
 import { Tablet } from './models/Tablets';
 import { TabletDetail } from './models/TabletDetails';
 
+
 (async () => {
   dbInit();
 

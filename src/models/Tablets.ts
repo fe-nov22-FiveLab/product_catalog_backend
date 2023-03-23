@@ -45,7 +45,7 @@ export class Tablet extends Model {
 
   @BelongsTo(() => TabletDetail)
     phoneDetails: TabletDetail | null;
-
+   
   @AllowNull(false)
   @Column({
     type: DataType.STRING
