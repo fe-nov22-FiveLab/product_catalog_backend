@@ -6,4 +6,4 @@ This is the backend part of project which is built using Sequelize, Express, and
 
 ## [Demo](https://fe-nov22-fivelab.github.io/product_catalog_frontend/)
 
-## [API](https://product-catalog-api-sc0v.onrender.com/)
+## [API](https://product-api-rtk8.onrender.com/)
